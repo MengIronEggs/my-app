@@ -78,6 +78,12 @@ export default defineConfig({
                   path: '/index/productdevelopment',
                   component: './jcpz/Productdevelopment',
                 },
+                {
+                  name: 'orderlist',
+                  icon: 'smile',
+                  path: '/index/orderlist',
+                  component: './jcpz/OrderList',
+                },
               ],
             },
             {

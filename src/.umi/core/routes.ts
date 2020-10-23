@@ -64,6 +64,13 @@ const routes = [
                 "path": "/index/productdevelopment",
                 "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__jcpz__Productdevelopment' */'/Users/ningmeng/Desktop/react-ant/my-app/src/pages/jcpz/Productdevelopment'), loading: require('@/components/PageLoading/index').default}),
                 "exact": true
+              },
+              {
+                "name": "orderlist",
+                "icon": "smile",
+                "path": "/index/orderlist",
+                "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__jcpz__OrderList' */'/Users/ningmeng/Desktop/react-ant/my-app/src/pages/jcpz/OrderList'), loading: require('@/components/PageLoading/index').default}),
+                "exact": true
               }
             ]
           },

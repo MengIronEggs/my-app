@@ -6,6 +6,7 @@ export default {
   'menu.index.marketdevelopment':'市场开拓信息',
   'menu.index.advertisingInvestment':'广告投入信息',
   'menu.index.productdevelopment':'产品研发信息',
+  'menu.index.orderlist':'生产订单信息',
   'menu.more-blocks': '更多区块',
   'menu.home': '首页',
   'menu.admin': '管理页',
