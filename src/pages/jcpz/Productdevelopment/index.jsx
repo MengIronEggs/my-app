@@ -74,7 +74,6 @@ export default () => {
       console.log(InputValueArr);
     };
     // 调用接口
-
     const onFinish = (values) => {
       console.log('Received values of form: ', values);
     };

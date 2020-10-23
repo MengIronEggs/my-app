@@ -4,15 +4,15 @@ import '@@/core/devScripts';
 import '../global.tsx';
 import { plugin } from './core/plugin';
 import { createHistory } from './core/history';
-import { ApplyPluginsType } from '/Users/ningmeng/Desktop/ant/my-app/node_modules/@umijs/runtime';
-import { renderClient } from '/Users/ningmeng/Desktop/ant/my-app/node_modules/@umijs/renderer-react/dist/index.js';
+import { ApplyPluginsType } from '/Users/ningmeng/Desktop/react-ant/my-app/node_modules/@umijs/runtime';
+import { renderClient } from '/Users/ningmeng/Desktop/react-ant/my-app/node_modules/@umijs/renderer-react/dist/index.js';
 
 
 require('../global.less');
 require('./plugin-locale/locale')._onCreate();
 (() => {
   // Runtime block add component
-  window.GUmiUIFlag = require('/Users/ningmeng/Desktop/ant/my-app/node_modules/@umijs/plugin-ui-blocks/lib/sdk/flagBabelPlugin/GUmiUIFlag.js').default;
+  window.GUmiUIFlag = require('/Users/ningmeng/Desktop/react-ant/my-app/node_modules/@umijs/plugin-ui-blocks/lib/sdk/flagBabelPlugin/GUmiUIFlag.js').default;
 
   // Enable/Disable block add edit mode
   window.addEventListener(
@@ -78,9 +78,9 @@ export default clientRender();
         if (isIE) return;
 
         // Umi UI Bubble
-        require('/Users/ningmeng/Desktop/ant/my-app/node_modules/@umijs/preset-ui/lib/bubble').default({
-          port: 3001,
-          path: '/Users/ningmeng/Desktop/ant/my-app',
+        require('/Users/ningmeng/Desktop/react-ant/my-app/node_modules/@umijs/preset-ui/lib/bubble').default({
+          port: 3000,
+          path: '/Users/ningmeng/Desktop/react-ant/my-app',
           currentProject: '',
           isBigfish: undefined,
         });

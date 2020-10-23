@@ -3,15 +3,15 @@ import {
   createIntl,
   IntlShape,
   MessageDescriptor,
-} from '/Users/ningmeng/Desktop/ant/my-app/node_modules/react-intl';
+} from '/Users/ningmeng/Desktop/react-ant/my-app/node_modules/react-intl';
 import { ApplyPluginsType } from 'umi';
 import { event, LANG_CHANGE_EVENT } from './locale';
 // @ts-ignore
-import warning from '/Users/ningmeng/Desktop/ant/my-app/node_modules/warning/warning.js';
+import warning from '/Users/ningmeng/Desktop/react-ant/my-app/node_modules/warning/warning.js';
 
 import { plugin } from '../core/umiExports';
 
-export * from '/Users/ningmeng/Desktop/ant/my-app/node_modules/react-intl';
+export * from '/Users/ningmeng/Desktop/react-ant/my-app/node_modules/react-intl';
 
 let g_intl: IntlShape;
 
@@ -20,7 +20,7 @@ const useLocalStorage = true;
 export const localeInfo: {[key: string]: any} = {
   'en-US': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/ningmeng/Desktop/ant/my-app/src/locales/en-US.ts')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/ningmeng/Desktop/react-ant/my-app/src/locales/en-US.ts')),
     },
     locale: 'en-US',
     antd: {
@@ -30,7 +30,7 @@ export const localeInfo: {[key: string]: any} = {
   },
   'pt-BR': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/ningmeng/Desktop/ant/my-app/src/locales/pt-BR.ts')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/ningmeng/Desktop/react-ant/my-app/src/locales/pt-BR.ts')),
     },
     locale: 'pt-BR',
     antd: {
@@ -40,7 +40,7 @@ export const localeInfo: {[key: string]: any} = {
   },
   'zh-CN': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/ningmeng/Desktop/ant/my-app/src/locales/zh-CN.ts')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/ningmeng/Desktop/react-ant/my-app/src/locales/zh-CN.ts')),
     },
     locale: 'zh-CN',
     antd: {
@@ -50,7 +50,7 @@ export const localeInfo: {[key: string]: any} = {
   },
   'zh-TW': {
     messages: {
-      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/ningmeng/Desktop/ant/my-app/src/locales/zh-TW.ts')),
+      ...((locale) => locale.__esModule ? locale.default : locale)(require('/Users/ningmeng/Desktop/react-ant/my-app/src/locales/zh-TW.ts')),
     },
     locale: 'zh-TW',
     antd: {

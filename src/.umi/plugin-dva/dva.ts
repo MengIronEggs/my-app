@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { ApplyPluginsType } from 'umi';
 import dva from 'dva';
 // @ts-ignore
-import createLoading from '/Users/ningmeng/Desktop/ant/my-app/node_modules/dva-loading/dist/index.esm.js';
+import createLoading from '/Users/ningmeng/Desktop/react-ant/my-app/node_modules/dva-loading/dist/index.esm.js';
 import { plugin, history } from '../core/umiExports';
 
 let app:any = null;
@@ -28,10 +28,10 @@ export function _onCreate(options = {}) {
   (runtimeDva.plugins || []).forEach((plugin:any) => {
     app.use(plugin);
   });
-  app.model({ namespace: 'global', ...(require('/Users/ningmeng/Desktop/ant/my-app/src/models/global.ts').default) });
-app.model({ namespace: 'login', ...(require('/Users/ningmeng/Desktop/ant/my-app/src/models/login.ts').default) });
-app.model({ namespace: 'setting', ...(require('/Users/ningmeng/Desktop/ant/my-app/src/models/setting.ts').default) });
-app.model({ namespace: 'user', ...(require('/Users/ningmeng/Desktop/ant/my-app/src/models/user.ts').default) });
+  app.model({ namespace: 'global', ...(require('/Users/ningmeng/Desktop/react-ant/my-app/src/models/global.ts').default) });
+app.model({ namespace: 'login', ...(require('/Users/ningmeng/Desktop/react-ant/my-app/src/models/login.ts').default) });
+app.model({ namespace: 'setting', ...(require('/Users/ningmeng/Desktop/react-ant/my-app/src/models/setting.ts').default) });
+app.model({ namespace: 'user', ...(require('/Users/ningmeng/Desktop/react-ant/my-app/src/models/user.ts').default) });
   return app;
 }
 

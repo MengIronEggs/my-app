@@ -6,10 +6,10 @@ import { EffectsCommandMap, SubscriptionAPI } from 'dva';
 import { match } from 'react-router-dom';
 import { Location, LocationState, History } from 'history';
 
-export * from '/Users/ningmeng/Desktop/ant/my-app/src/models/global';
-export * from '/Users/ningmeng/Desktop/ant/my-app/src/models/login';
-export * from '/Users/ningmeng/Desktop/ant/my-app/src/models/setting';
-export * from '/Users/ningmeng/Desktop/ant/my-app/src/models/user';
+export * from '/Users/ningmeng/Desktop/react-ant/my-app/src/models/global';
+export * from '/Users/ningmeng/Desktop/react-ant/my-app/src/models/login';
+export * from '/Users/ningmeng/Desktop/react-ant/my-app/src/models/setting';
+export * from '/Users/ningmeng/Desktop/react-ant/my-app/src/models/user';
 
 export interface Action<T = any> {
   type: T
