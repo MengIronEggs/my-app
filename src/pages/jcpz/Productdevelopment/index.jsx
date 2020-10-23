@@ -123,7 +123,7 @@ export default () => {
       <div className={styles.fromCard}>
         <AdvancedSearchForm />
       </div>
-      <Table dataSource={listArr} columns={columns} />;
+      <Table dataSource={listArr} rowKey='id' columns={columns} />;
     </div>
     // </PageContainer>
   );
