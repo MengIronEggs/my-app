@@ -1,6 +1,6 @@
 import { PageContainer } from '@ant-design/pro-layout';
 import React, { useState, useEffect } from 'react';
-import { Form, Row, Col, Input, Button,Table } from 'antd';
+import { Form, Row, Col, Input, Button, Table } from 'antd';
 import { Link } from 'umi'
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
 import styles from './index.less';
@@ -77,38 +77,6 @@ export default () => {
     const onFinish = (values) => {
       console.log('Received values of form: ', values);
     };
-    const [listArr, setListArr] = useState([]);
-    // 获取订单列表
-    const getOrderListFn = () => {
-      AjaxGet('202007').then(res => {
-        console.log('res', res);
-        if(res.Code == 200 && res.Data.length > 0 ){
-            setListArr([...res.Data]);
-            console.log(listArr);
-        }
-      });
-    };
-    const columns = [
-      {
-        title: '部门',
-        dataIndex: 'depart',
-        key: 'depart',
-      },
-      {
-        title: '项目名称',
-        dataIndex: 'project',
-        key: 'project',
-      },
-      {
-        title: '时间',
-        dataIndex: 'yearmonth',
-        key: 'yearmonth',
-      },
-    ]
-    // 初始化加载
-    useEffect(() => {
-      getOrderListFn();
-    }, []);
     // 渲染表单
     return (
       <Form
@@ -127,6 +95,26 @@ export default () => {
       </Form>
     )
   };
+  // 初始化加载
+  useEffect(() => {
+    getOrderListFn();
+  }, []);
+  const [listArr, setListArr] = useState([]);
+  // 获取订单列表
+  const getOrderListFn = () => {
+    AjaxGet('202007').then(res => {
+      if (res.Code == 200 && res.Data.length > 0) {
+        setListArr([...res.Data]);
+      }
+    });
+  };
+  // list表头、对应字段
+  const columns = [
+    { title: '部门', dataIndex: 'depart', key: 'depart' },
+    { title: '项目名称', dataIndex: 'project', key: 'project' },
+    { title: '时间', dataIndex: 'yearmonth', key: 'yearmonth' },
+  ];
+
   return (
     // <PageContainer content="" className={styles.main}>
     <div className={styles.content}>
@@ -135,7 +123,7 @@ export default () => {
       <div className={styles.fromCard}>
         <AdvancedSearchForm />
       </div>
-      {/* <Table dataSource={listArr} columns={columns} />; */}
+      <Table dataSource={listArr} columns={columns} />;
     </div>
     // </PageContainer>
   );
