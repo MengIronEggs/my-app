@@ -111,13 +111,6 @@ export default () => {
       }
     });
   };
-  // list表头、对应字段
-  const columns = [
-    { title: '部门', dataIndex: 'depart', key: 'depart' },
-    { title: '项目名称', dataIndex: 'project', key: 'project' },
-    { title: '时间', dataIndex: 'yearmonth', key: 'yearmonth' },
-  ];
-
   return (
     // <PageContainer content="" className={styles.main}>
     <div className={styles.content}>
@@ -126,7 +119,6 @@ export default () => {
       <div className={styles.fromCard}>
         <AdvancedSearchForm />
       </div>
-      <Table dataSource={listArr} rowKey='id' columns={columns} />;
     </div>
     // </PageContainer>
   );
