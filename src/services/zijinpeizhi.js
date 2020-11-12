@@ -13,3 +13,11 @@ export async function AjaxGet(text) {
     });
 }
 
+// 沙盘登录
+export async function sendBoxLogin(data){
+    return request (`/login?username=${data.userName}&password=${data.password}`)
+}
+// 沙盘比赛开始
+export async function senBoxCreateTable(data){
+    return request (`/createTable?table_num=${data}`)
+}

@@ -38,6 +38,13 @@ const routes = [
             "icon": "SettingOutlined",
             "routes": [
               {
+                "name": "demo",
+                "icon": "smile",
+                "path": "/index/demo",
+                "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__jcpz__Demo' */'/Users/ningmeng/Desktop/react-ant/my-app/src/pages/jcpz/Demo'), loading: require('@/components/PageLoading/index').default}),
+                "exact": true
+              },
+              {
                 "path": "/index/zjxx",
                 "name": "zjxx",
                 "icon": "smile",

@@ -2,6 +2,7 @@ export default {
   'menu.welcome': '欢迎',
   'menu.tablepage':'测试页面',
   'menu.index':'基础配置',
+  'menu.index.demo':'demo接口页面',
   'menu.index.zjxx':'资金信息',
   'menu.index.marketdevelopment':'市场开拓信息',
   'menu.index.advertisingInvestment':'广告投入信息',

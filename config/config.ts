@@ -55,6 +55,12 @@ export default defineConfig({
               // component: './jcpz/Index',
               routes: [
                 {
+                  name: 'demo',
+                  icon: 'smile',
+                  path: '/index/demo',
+                  component: './jcpz/Demo',
+                },
+                {
                   path: '/index/zjxx',
                   name: 'zjxx',
                   icon: 'smile',

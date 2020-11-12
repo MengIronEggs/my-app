@@ -47,7 +47,6 @@ const errorHandler = async (error: { response: any }): Response => {
   }
   // 超时重新登陆
   if (status === 401) {
-
     return response;
   }
 
@@ -79,18 +78,20 @@ const request = extend({
   // credentials: 'include', // 默认请求是否带上cookie
 });
 request.interceptors.request.use((url: string, options: any) => {
-  const token = localStorage.getItem('Token');
-  const urlArr = ['/GetDmprojectWhere?cond=yearmonth&arg=202007']; // 排除/login接口不做token拦截
+  const token = localStorage.getItem('onToken');
+  // const urlArr = ['/GetDmprojectWhere?cond=yearmonth&arg=202007']; // 排除/login接口不做token拦截
+  const urlArr = ['/login?username']; // 排除/login接口不做token拦截
   if (token || urlArr.some((item: any) => url.indexOf(item) !== -1)) {
     // const host = 'http://vise.hunanjs.gov.cn';
-    const host = 'https://gtdb.csdri.com.cn/ddaily/';
+    // const host = 'https://gtdb.csdri.com.cn/ddaily/';
+    const host = 'https://gtdb.csdri.com.cn/sandboxapi';
     const data = options.data || {};
     const useroptions = { ...options, data };
     const userHeaders = useroptions.headers || {}; // 导入自配的header，方便上传文件时使用
     const headers = {
       'Content-Type': 'application/json',
       // Accept: 'application/json',
-      'Authorization': 'bearer' + token,
+      'Authorization': 'Bearer' + token,
       // ...userHeaders,
     };
     if(urlArr.some((item: any) => url.indexOf(item) !== -1)){

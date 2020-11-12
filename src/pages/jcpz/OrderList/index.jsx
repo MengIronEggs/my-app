@@ -32,6 +32,16 @@ export default () => {
     cpmc: "",
     markType: "",
   });
+  // 
+  const [dialogFrom, setdialogFrom] = useState({
+    orderName: "",//订单名称
+    productNum: "",//产品数量
+    markType: "",//市场类型
+    amountMoney: "",//金额
+    accountPeriod: "",//账期
+    ISO: "",//ISO
+    years: "",//年
+  });
   // list表头、对应字段
   const columns = [
     { title: '编号', dataIndex: 'depart', key: 'depart', align: 'center' },
@@ -74,12 +84,12 @@ export default () => {
   const searchClick = () => {
     console.log('搜索', searchFrom);
   };
-  // 添加
+  // 添加按钮的点击事件
   const addClick = () => {
     console.log('添加');
     setShowDialog(!showDialog);
   };
-  // 删除
+  // 删除按钮的点击事件
   const delectClick = () => {
     console.log('删除');
   };
@@ -87,10 +97,71 @@ export default () => {
   const handleOk = (e) => {
     setShowDialog(!showDialog);
   };
-  // dialog
+  // dialog取消的点击事件
   const handleCancel = (e) => {
     setShowDialog(!showDialog);
+    // 清空输入的值  
+    setdialogFrom({
+      orderName: "",//订单名称
+      productNum: "",//产品数量
+      markType: "",//市场类型
+      amountMoney: "",//金额
+      accountPeriod: "",//账期
+      ISO: "",//ISO
+      years: "",//年
+    });
   };
+  // dialog Input 的change事件
+  const dialogorderNameChange = (e) => {
+    const orderNameData = {
+      ...dialogFrom,
+      orderName: e.target.value
+    };
+    setdialogFrom(orderNameData);
+  };
+  const dialogproductNumChange = (e) => {
+    const productNumData = {
+      ...dialogFrom,
+      productNum: e.target.value,
+    };
+    setdialogFrom(productNumData);
+  };
+  const dialogMarketTypeOnChange = (e) => {
+    const dialogMarketData = {
+      ...dialogFrom,
+      markType: e,
+    };
+    setdialogFrom(dialogMarketData);
+  }
+  const dialogAmountMoneyOnChange = (e) => {
+    const AmountMoneyData = {
+      ...dialogFrom,
+      amountMoney: e.target.value,
+    };
+    setdialogFrom(AmountMoneyData);
+  };
+  const dialogAccountPeriodOnChange = (e) => {
+    const AccountPeriodData = {
+      ...dialogFrom,
+      accountPeriod: e.target.value,
+    };
+    setdialogFrom(AccountPeriodData);
+  };
+  const dialogISOOnChange = (e) => {
+    const ISOData = {
+      ...dialogFrom,
+      ISO: e.target.value,
+    };
+    setdialogFrom(ISOData);
+  };
+  const dialogYearsOnChange = (e) => {
+    const YearsData = {
+      ...dialogFrom,
+      years: e.target.value,
+    };
+    setdialogFrom(YearsData);
+  };
+
   // 初始化加载 
   useEffect(() => {
     // 调用获取订单接口
@@ -126,8 +197,8 @@ export default () => {
           <Col className="gutter-row" span={6}>
             <Form.Item label="市场类型">
               <Select
-                placeholder="Tags Mode"
-                value={searchFrom.markType || ''}
+                placeholder="请选择市场类型"
+                value={searchFrom.markType || null}
                 onChange={(e) => marketTyepOnChange(e)}
               >
                 <Option value="本地市场">本地市场</Option>
@@ -149,15 +220,56 @@ export default () => {
   };
   // 定义添加dialg
   const AddiaLogContent = () => {
+    const formLayout = {
+      labelCol: { span: 4 },
+      wrapperCol: { span: 18 },
+    }
     return (
       <Modal title="添加订单"
         visible={showDialog}
         onOk={handleOk}
         onCancel={handleCancel}
       >
+        <Form layout="horizontal" {...formLayout} >
+          <Form.Item label="订单名称">
+            <Input onChange={(e) => dialogorderNameChange(e)} value={dialogFrom.orderName || ""} placeholder='请输入订单名称' />
+          </Form.Item>
+          <Form.Item label="产品数量">
+            <Input onChange={(e) => dialogproductNumChange(e)} value={dialogFrom.productNum || ""} placeholder='请输入产品数量' />
+          </Form.Item>
+          <Form.Item label="市场类型">
+            <Select
+              placeholder="请选择市场类型"
+              value={dialogFrom.markType || null}
+              onChange={(e) => dialogMarketTypeOnChange(e)}
+            >
+              <Option value="本地市场">本地市场</Option>
+              <Option value="区域市场">区域市场</Option>
+              <Option value="国内市场">国内市场</Option>
+              <Option value="亚洲市场">亚洲市场</Option>
+              <Option value="国际市场">国际市场</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item label="金额">
+            <Input onChange={(e) => dialogAmountMoneyOnChange(e)} value={dialogFrom.amountMoney || ""} placeholder='请输入金额' />
+          </Form.Item>
+          <Form.Item label="账期">
+            <Input onChange={(e) => dialogAccountPeriodOnChange(e)} value={dialogFrom.accountPeriod || ""} placeholder='请输入账期' />
+          </Form.Item>
+          <Form.Item label="ISO">
+            <Input onChange={(e) => dialogISOOnChange(e)} value={dialogFrom.ISO || ""} placeholder='请输入ISO' />
+          </Form.Item>
+          <Form.Item label="年">
+            <Input onChange={(e) => dialogYearsOnChange(e)} value={dialogFrom.years || ""} placeholder='请输入年' />
+          </Form.Item>
+        </Form>
       </Modal>
     )
   };
+  // 选择表格的方法
+  const rowSelection = () => {};
+  // 表格行的点击事件
+  
 
   return (
     // <PageContainer content="" className={styles.main}>
@@ -172,9 +284,14 @@ export default () => {
             {Serfromcontent()}
           </div>
           {/* tableList */}
-          <Table align='center' bordered pagination={false} dataSource={listArr} rowKey='id' columns={columns} />
+          <Table align='center' onRow={(record) => ({
+            onClick: () => {
+              this.selectRow(record);
+            },
+          })} rowSelection={rowSelection} rowKey={record => record.id} bordered pagination={false} dataSource={listArr} rowKey='id' columns={columns} />
           {/* dialog */}
-          <AddiaLogContent></AddiaLogContent>
+          {/* <AddiaLogContent></AddiaLogContent> */}
+          {AddiaLogContent()}
         </div>
       </div>
     </div>
